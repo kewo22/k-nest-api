@@ -22,3 +22,5 @@ async function bootstrap() {
     await app.listen(port)
 }
 bootstrap()
+
+// https://towardsdev.com/how-to-deploy-a-nestjs-app-to-aws-elastic-beanstalk-with-added-https-and-ci-cd-2d35c319e9f4
