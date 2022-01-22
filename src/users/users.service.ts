@@ -10,6 +10,7 @@ export class UsersService {
     { id: 3, name: 'Pravin' },
     { id: 4, name: 'Vivian' },
     { id: 5, name: 'Adrian' },
+    { id: 6, name: 'Anthony' },
   ];
 
   findAll(name: string) {
