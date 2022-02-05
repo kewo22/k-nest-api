@@ -12,14 +12,14 @@ export class UsersController {
   @ApiOkResponse({ type: User, isArray: true })
   @ApiQuery({ name: 'name', required: false })
   @Get()
-  getUsers(@Query('name') name?: string): User[] {
+  getUsers(@Query('name') name?: string): Promise<User[]> {
     return this.userService.findAll(name)
   }
 
   @ApiOkResponse({ type: User })
   @ApiNotFoundResponse()
   @Get(':id')
-  getUserById(@Param('id', ParseIntPipe) id: number): User {
+  getUserById(@Param('id', ParseIntPipe) id: number): Promise<User> {
 
     const user = this.userService.findById(id);
 
@@ -33,7 +33,7 @@ export class UsersController {
   @ApiCreatedResponse({ type: User })
   @ApiBadRequestResponse() // From validate pipe
   @Post()
-  createUser(@Body() body: CreateUserDto): User {
+  createUser(@Body() body: CreateUserDto): Promise<User> {
     return this.userService.createUser(body)
   }
 
